@@ -4,14 +4,14 @@ import java.util.Random;
 
 public class Clef {
 
-    private ArrayList<Integer> codage = new ArrayList<>();
+    private  int[] codage;
     private final int TAILLE_PAR_DEFAUT = 20;
     private final int MAX_CODAGE = 100;
     private Random random = new Random();
 
     Clef() {
         for (int i = 0; i < TAILLE_PAR_DEFAUT; i++) {
-            codage.add(random.nextInt(MAX_CODAGE + 1));
+            codage[i] = random.nextInt(MAX_CODAGE + 1);
         }
     }
 
@@ -20,21 +20,21 @@ public class Clef {
             throw new IllegalArgumentException("taille saisie invalide");
         }
         for (int i = 0; i < taille; i++) {
-            codage.add(random.nextInt(MAX_CODAGE + 1));
+            codage[i] = (random.nextInt(MAX_CODAGE + 1));
         }
     }
 
     public void afficherEncodage(){
        StringBuilder sb = new StringBuilder();
        
-        for(int i = 0; i < codage.size(); i++){
-            sb.append(codage.get(i));
+        for(int i = 0; i < codage.length; i++){
+            sb.append(codage[i]);
             sb.append(" ");
         }
         System.out.println(sb.toString());
     }
 
-    public ArrayList getCodage() {
+    public int[] getCodage() {
         return codage;
     }
 
